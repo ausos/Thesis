@@ -1,0 +1,13 @@
+version: '3.1'
+services:
+  postgres_container:
+    image: postgres:latest
+    restart: always
+    container_name: ulybka
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+      POSTGRES_PASSWORD: mypasswd
+      POSTGRES_USER: myuser
